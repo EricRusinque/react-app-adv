@@ -1,11 +1,13 @@
+import { Suspense } from "react";
 import { Route, Routes, NavLink, Navigate } from "react-router-dom"
 import { BrowserRouter } from "react-router-dom"
 import logo from '../assets/React-icon.svg.png'
-import { LazyPage1, LazyPage2, LazyPage3 } from '../01-lazyload/pages'
 import { routes } from './routes';
 
 export const Navigation = () => {
   return (
+
+    <Suspense fallback={ <span> Loading.... </span> } >
     <BrowserRouter>
         <div className="main-layout">
             <nav>
@@ -14,9 +16,15 @@ export const Navigation = () => {
                 }}/>
             <ul>
                 {
-                    routes.map( ({ to, name }) => (
-                        <li>
-                            <NavLink to={to} className={ ({ isActive }) => isActive ? 'nav-active' : '' }> { name } </NavLink>
+                    routes.map( ({ to, name, path }) => (
+                                
+                        <li key={ path } >
+                            <NavLink 
+                                to={ to } 
+                                className={ ({ isActive }) => isActive ? 'nav-active' : '' }
+                            > 
+                                { name } 
+                            </NavLink>
                         </li>
                     ))
                 }
@@ -26,16 +34,21 @@ export const Navigation = () => {
             <Routes>
           
                 {
-                    routes.map( ({ path, Component}) =>(
-                        <Route path={path} element={ <Component/> } />
+                    routes.map( ({ path, Component, name}) =>(
+                        <Route 
+                            key={ name }
+                            path={ path } 
+                            element={ <Component/> } 
+                        />
                 
                     ))
                 }
 
-                <Route path="/*" element={ <Navigate to="/lazy1"  replace/>}  />
+                <Route path="/*" element={ <Navigate to={ routes[0].to }  replace/>}  />
             </Routes>
 
         </div>
     </BrowserRouter>
+    </Suspense>
   )
 }
