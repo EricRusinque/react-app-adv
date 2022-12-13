@@ -2,6 +2,8 @@ import React from 'react'
 
 export const LazyPage2 = () => {
   return (
-    <div>LazyPages2</div>
+    <div>
+      <h1>LazyPages2</h1>
+    </div>
   )
 }
