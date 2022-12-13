@@ -16,9 +16,9 @@ export const Navigation = () => {
                 }}/>
             <ul>
                 {
-                    routes.map( ({ to, name, path }) => (
+                    routes.map( ({ to, name }) => (
                                 
-                        <li key={ path } >
+                        <li key={ name } >
                             <NavLink 
                                 to={ to } 
                                 className={ ({ isActive }) => isActive ? 'nav-active' : '' }
@@ -34,9 +34,9 @@ export const Navigation = () => {
             <Routes>
           
                 {
-                    routes.map( ({ path, Component, name}) =>(
+                    routes.map( ({ path, Component}) =>(
                         <Route 
-                            key={ name }
+                            key={ path }
                             path={ path } 
                             element={ <Component/> } 
                         />
