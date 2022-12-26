@@ -8,6 +8,7 @@ import { ProductContextProps, Product, onChangeArgs } from '../interfaces/interf
 
 
 export const ProductContext = createContext({} as ProductContextProps);
+
 const { Provider } = ProductContext;
 
 

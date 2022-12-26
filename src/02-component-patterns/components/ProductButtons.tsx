@@ -4,8 +4,8 @@ import styles from "../styles/styles.module.css";
 
 
 export interface Props {
-    className?: string
-    style?: CSSProperties
+    className?: string;
+    style?: CSSProperties;
 }
 
 
