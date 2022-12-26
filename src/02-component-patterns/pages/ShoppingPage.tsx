@@ -87,6 +87,7 @@ export const ShoppingPage = () => {
                   <ProductCard 
                   product={ product2 }
                   key={ key }
+                  value={ product.count }
                   className='bg-dark'
                   style={{
                     width: '100px'
