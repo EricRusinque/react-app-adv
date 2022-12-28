@@ -15,8 +15,8 @@ export const ProductTitle = ({ title, className,  style }:Props) => {
    
     return (
         <span 
-            className={ `${styles.productDescription} ${className}`}
-            style={ style }
+        className={ `${styles.productDescription} ${className}`}
+        style={ style }
         > { title ? title : product.title  }
             
                 
