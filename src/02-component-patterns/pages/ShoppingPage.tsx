@@ -1,5 +1,5 @@
 
-// import '../styles/custom-styles.css'
+import '../styles/custom-styles.css'
 
 
 import { ProductCard, ProductImage, ProductTitle, ProductButtons } from '../components';
@@ -24,12 +24,11 @@ export const ShoppingPage = () => {
           }}
         >
           {
-            ( mensaje ) => (
+            () => (
               <>
                 <ProductImage className="custom-image" />
                 <ProductTitle className="text-white text-bold"/>
                 <ProductButtons className="custom-buttons"/>     
-                <h1>{mensaje}</h1>         
               </>
             )
           }
