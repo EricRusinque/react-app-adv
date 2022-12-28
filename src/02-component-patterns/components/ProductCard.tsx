@@ -14,7 +14,8 @@ const { Provider } = ProductContext;
 
 export interface Props {
     product: Product;
-    children?: ReactElement | ReactElement[];
+    // children?: ReactElement | ReactElement[];
+    children?: ( mensaje: string ) => JSX.Element;
     className?: string;
     style?: CSSProperties;
     onChange?: ( args: onChangeArgs ) => void; 
@@ -23,7 +24,7 @@ export interface Props {
 }
 
 
-export const ProductCard = ({ product, children, className, style, value, onChange, initialValues }: Props ) => {
+export const ProductCard = ({ product, children, className, style, onChange, initialValues }: Props ) => {
  
     const { counter, increaseBy} = useProduct({
         onChange, 
@@ -44,29 +45,12 @@ export const ProductCard = ({ product, children, className, style, value, onChan
             > 
 
                 {
-                    children
+                    children('hola mundo')
                 }
 
-                {/*   <ProductImage 
-                img={ product.img} 
-                /> 
-
-                <ProductTitle 
-                title={ product.title }
-                />
-
-                <ProductButtons 
-                counter={ 0 } 
-                increaseBy={ increaseBy }
-                /> */}
 
             </div>
         </Provider>
   )
 }
 
-/* 
-ProductCard.Title = ProductTitle;
-ProductCard.Image = ProductImage;
-ProductCard.Buttons = ProductButtons;
- */
