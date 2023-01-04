@@ -9,7 +9,7 @@ export interface Props {
 }
 
 
-export const ProductButtons = ({ className, style }:Props) => {
+export const ProductButtons = ({ className, style }: Props) => {
     
     const { increaseBy, counter, maxCount } = useContext( ProductContext );
    

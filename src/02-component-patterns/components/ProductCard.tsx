@@ -1,7 +1,7 @@
-import styles from "../styles/styles.module.css";
 import { createContext, CSSProperties, ReactElement } from 'react';
 import { useProduct } from '../hooks/useProduct';
 import { ProductContextProps, Product, onChangeArgs, InitialValues, ProductCardHandlers } from '../interfaces/interfaces';
+import styles from "../styles/styles.module.css";
 
 
 
@@ -45,7 +45,7 @@ export const ProductCard = ({ product, children, className, style, onChange, ini
             > 
 
                 {
-                    children({
+                    children!({
                         count: counter,
                         isMaxCountReached,
                         maxCount: initialValues?.maxCount,

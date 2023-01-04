@@ -1,5 +1,5 @@
 
-import '../styles/custom-styles.css'
+// import '../styles/custom-styles.css'
 
 
 import { ProductCard, ProductImage, ProductTitle, ProductButtons } from '../components';
@@ -24,12 +24,18 @@ export const ShoppingPage = () => {
           }}
         >
           {
-            ({ reset }) => (
+            ( { reset, increaseBy, isMaxCountReached, count, maxCount } ) => (
               <>
                 <ProductImage className="custom-image" />
                 <ProductTitle className="text-white text-bold"/>
                 <ProductButtons className="custom-buttons"/>     
+
                 <button onClick={ reset }>Reset</button>
+                <button onClick={ () => increaseBy(-2) }>-2</button>
+                {
+                 (!isMaxCountReached && <button onClick={ () => increaseBy(+2) }>+2</button>)
+                }
+                <span>{ count }</span>                
               </>
             )
           }
